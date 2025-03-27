@@ -3,8 +3,14 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Navbar from './components/Navbar'
+import Alert from './components/Alert'
+
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+  const [text, setText]=useState("Dark Mode");
+  const [mode, setMode]=useState ("dark");
+  const [alert, setAlert]=useState('null');
+
 
   const increment = () => {
     setCount(count + 1);
@@ -23,18 +29,31 @@ function App() {
   const title = "Hamro Nepal";
   const submit = "Submit";
 
+  const buttonToggle=()=>{
+    if(text == "Dark Mode"){
+      setText("Light Mode");
+      setMode("dark");
+      showAlert("Dark mode is on ", "sucess");
+    }
+    else{
+      setText("Dark Mode");
+      setMode("light");
+      showAlert("Light mode is on ", "sucess");
+    }
+  }
+
+  const showAlert = (message,type) =>{
+    setAlert( {
+      message: message,
+      type: type
+    });
+  };
+  
+
   return (
     <>
-    <Navbar title={title} submit={submit}/>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
+    <Navbar  title={title} text = {text} submit={submit} buttonToggle={buttonToggle} mode={mode}/>
+    <Alert alert={alert}/>
       <div className="card">
         <button onClick={increment}>
           Increment
