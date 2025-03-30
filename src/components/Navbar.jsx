@@ -1,8 +1,13 @@
 import React from 'react'
+import { ToastContainer, Zoom } from 'react-toastify'
 
 const Navbar = (props) => {
   return (
-    <div><nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
+    <>
+  
+   
+    
+    <div><nav className={`navbar navbar-expand-lg navbar-${props.color} bg-${props.color}`}>
     <div className="container-fluid">
       <a className="navbar-brand" href="#">{props.title}</a>
       <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,7 +36,7 @@ const Navbar = (props) => {
             <a className="nav-link disabled" aria-disabled="true">Disabled</a>
           </li>
         </ul>
-        <button className="btn btn-primary" onClick={props.buttonToggle}>{props.text}</button>
+        <button className="btn btn-primary" onClick={props.modeChange}>{props.mode}</button>
 
         {/* <form className="d-flex" role="search">
           <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
@@ -40,8 +45,9 @@ const Navbar = (props) => {
       </div>
     </div>
   </nav></div>
-    
+  </>    
   )
 }
+
 
 export default Navbar

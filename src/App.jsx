@@ -1,15 +1,25 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+
 import viteLogo from '/vite.svg'
 import './App.css'
 import Navbar from './components/Navbar'
 import Alert from './components/Alert'
+import { ToastContainer, toast, Zoom } from 'react-toastify'
+import { EmblaCarousel } from './components/EmblaCarousel'
+import 'react-toastify/dist/ReactToastify.css'; // Important for styling
+import Slider from './components/Slider'
+
+
+
+
+
 
 function App() {
   const [count, setCount] = useState(0);
-  const [text, setText]=useState("Dark Mode");
-  const [mode, setMode]=useState ("dark");
+  const [mode,setMode] =  useState("Light Mode");
+  const [color, setColor] = useState('dark');
   const [alert, setAlert]=useState('null');
+
 
 
   const increment = () => {
@@ -25,35 +35,84 @@ function App() {
   const changeName =()=>{
     setName(name === "Guest" ? "Nirdesh" : "Guest");
   }
+  const title = "Hamro Nepal"
 
-  const title = "Hamro Nepal";
-  const submit = "Submit";
-
-  const buttonToggle=()=>{
-    if(text == "Dark Mode"){
-      setText("Light Mode");
-      setMode("dark");
-      showAlert("Dark mode is on ", "sucess");
-    }
-    else{
-      setText("Dark Mode");
-      setMode("light");
-      showAlert("Light mode is on ", "sucess");
-    }
-  }
-
-  const showAlert = (message,type) =>{
-    setAlert( {
-      message: message,
+    const  showAlert = (message,type)=>{
+      setAlert({
+      message:message,
       type: type
-    });
-  };
-  
+      })
+      setTimeout(()=>{
+        setAlert('null');
+      },2000)
+    }
+
+    const modeChange =()=>{
+      if(mode === 'Dark Mode'){
+        setMode('Light Mode');
+        setColor('dark');
+          toast.success('Dark Mode is On', {
+            position: "top-center",
+            autoClose: 1000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Zoom,
+            });
+      }
+      else{
+        setMode('Dark Mode')
+        setColor('light');
+        showAlert('Dark mode', "success");
+        toast.success('Light is On', {
+          position: "top-center",
+          autoClose: 1000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+          transition: Zoom,
+          });
+      }
+    }
+    const notify = () => toast("Wow so easy!");   
+
+    
+      
 
   return (
     <>
-    <Navbar  title={title} text = {text} submit={submit} buttonToggle={buttonToggle} mode={mode}/>
+
+    
+    <Navbar notify={notify}title={title} mode={mode} modeChange={modeChange} color={color}/>
+    
+
+    <EmblaCarousel/>
+
+    <ToastContainer
+   position="center"
+   autoClose={1000}
+   hideProgressBar
+   newestOnTop={false}
+   closeOnClick
+   rtl={false}
+   pauseOnFocusLoss
+   draggable
+   pauseOnHover
+   theme="dark"
+   transition={Zoom}
+    />
+
+    <Slider/>
+
+    <button onClick={notify}>Notify</button>
     <Alert alert={alert}/>
+
       <div className="card">
         <button onClick={increment}>
           Increment
