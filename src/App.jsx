@@ -5,11 +5,13 @@ import './App.css'
 import Navbar from './components/Navbar'
 import Alert from './components/Alert'
 import { ToastContainer, toast, Zoom } from 'react-toastify'
-import { EmblaCarousel } from './components/EmblaCarousel'
 import 'react-toastify/dist/ReactToastify.css'; // Important for styling
 import Slider from './components/Slider'
+import ClassBasedComponent from './components/ClassBasedComponent'
+import FunctionBased from './components/FunctionBased'
 
-
+import Navbar1 from './components/Navbar1'
+import Carousel1 from './components/Carousel1'
 
 
 
@@ -87,13 +89,12 @@ function App() {
 
   return (
     <>
-
+    <Navbar1/>
     
-    <Navbar notify={notify}title={title} mode={mode} modeChange={modeChange} color={color}/>
-    
+    {/* <Navbar notify={notify}title={title} mode={mode} modeChange={modeChange} color={color}/>
+     */}
 
-    <EmblaCarousel/>
-
+      <Carousel1/>
     <ToastContainer
    position="center"
    autoClose={1000}
@@ -109,7 +110,8 @@ function App() {
     />
 
     <Slider/>
-
+    <ClassBasedComponent/>
+    <FunctionBased/>
     <button onClick={notify}>Notify</button>
     <Alert alert={alert}/>
 
