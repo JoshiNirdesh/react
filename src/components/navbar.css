@@ -1,85 +1,95 @@
-nav{
+nav {
     display: flex;
-    padding: 20px 80px;
-    background-color: black;
+    padding: 10px 80px;
+    background-color: #343a40;
     justify-content: space-between;
     align-items: center;
-    
-    
 }
+
 #nav-list {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 50px;
-    
 }
+
 #nav-list li {
     list-style: none;
 }
+
 #nav-list li a {
     text-decoration: none;
     color: white;
-    font-size: 1.2 rem;
+    font-size: 1.2rem; /* Fixed typo here, should be "1.2rem" instead of "1.2 rem" */
     font-weight: 600;
-    transition: 0.3 ease-in-out;
+    transition: 0.3s ease-in-out; /* Added 's' for transition duration */
 }
-#nav-list li a:hover{
-    color:#F06225;
+
+#nav-list li a:hover {
+    color: #F06225;
 }
-.navbar{
+
+.navbar {
     margin-top: 10px;
-    
 }
-.nav-btn{
+
+.nav-btn {
     padding: 10px 20px;
     border-radius: 50px;
     border: none;
     background-color: #F06225;
     color: white;
 }
-.burger i{
+
+.burger i {
     color: white;
-    
 }
-.burger{
+
+.burger {
     display: none;
+    cursor: pointer;
 }
 
-@media screen and (max-width:768px) {
-
+@media screen and (max-width: 768px) {
     #nav-list {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 50px;
-    position: fixed;
-    top:80px;
-    right:-300px;
-    width: 300px;
-    height: 100vh;
-    background-color: rgb(51, 51, 51);
-    box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
-    padding: 40px 0 0 10px;
-        z-index: 1; /* Adjust as needed */
-      
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Align the items to the center */
+        justify-content: flex-start; /* Align the items to the start */
+        gap: 15px; /* Decrease the gap to make it tighter */
+        position: fixed;
+        top: 50px;
+        right: -100%; /* Fully hidden to the right */
+        width: 100%; /* Full width on smaller screens */
+        height: 60vh;
+        background-color: #343a40;
+        box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
+        padding: 40px 0 0 10px;
+        z-index: 1;
+        transition: right 0.3s ease-in-out;
     }
 
-    #nav-list.active{
-        right:0px;
+    #nav-list.active {
+        right: 0; /* Slide in the full-width menu */
     }
-    .nav-btn{
+
+    #nav-list li {
+        margin-bottom: 20px; /* Keep the gap between list items */
+    }
+
+    #nav-list li:first-child {
+        margin-top: 0; /* No top margin for the first list item */
+    }
+
+    .nav-btn {
         display: none;
     }
-    .burger{
+
+    .burger {
         display: block;
     }
-    #nav-list li {
-        margin-bottom: 25px;
-    }
-    .burger i{
+
+    .burger i {
         font-size: 24px;
-        cursor: pointer;
     }
 }
