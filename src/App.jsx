@@ -12,6 +12,8 @@ import FunctionBased from './components/FunctionBased'
 
 import Navbar1 from './components/Navbar1'
 import Carousel1 from './components/Carousel1'
+import Signup from './components/Signup'
+import Footer from './components/Footer'
 
 
 
@@ -110,6 +112,7 @@ function App() {
     />
 
     <Slider/>
+    <Signup/>
     <ClassBasedComponent/>
     <FunctionBased/>
     <button onClick={notify}>Notify</button>
@@ -132,8 +135,9 @@ function App() {
 
       <h1>Welcome {name}</h1>
       <button onClick={changeName}>Change Name</button>
+      <Footer/>
     </>
-
+    
   )
 }
 
