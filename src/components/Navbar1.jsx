@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './navbar.css'
+import { Link } from 'react-router-dom';
 
 class Navbar1 extends Component {
 
@@ -18,15 +19,16 @@ class Navbar1 extends Component {
     <div className='navbar'>
         <ul id="nav-list" className={this.state.clicked? "#nav-list active": "#nav-list"} >
 
-            <li><a href="">Home</a></li>
+            <li><Link to="/">Home</Link></li>
             <li><a href="">Shop</a></li>
             <li><a href="">Blog</a></li>
-            <li><a href="">About Us</a></li>
+            <li><Link to="/AboutUs">About Us</Link></li>
             <li><a href="">Contact Us</a></li>
+            <li><Link to="/Signup">SignUp</Link></li>
         </ul>
        
     </div>
-    <button className="nav-btn">Dark Mode</button>
+    <button className="nav-btn"><Link className="link" to='/login'>Login In</Link></button>
 
     <div className="burger" onClick={this.handleCick}>
         <i id='bar'className={this.state.clicked?'fas fa-times':'fas fa-bars'}></i>

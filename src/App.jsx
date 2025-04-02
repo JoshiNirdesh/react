@@ -1,141 +1,31 @@
-import { useState } from 'react'
-
-import viteLogo from '/vite.svg'
 import './App.css'
-import Navbar from './components/Navbar'
-import Alert from './components/Alert'
 import { ToastContainer, toast, Zoom } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'; // Important for styling
-import Slider from './components/Slider'
-import ClassBasedComponent from './components/ClassBasedComponent'
-import FunctionBased from './components/FunctionBased'
-
 import Navbar1 from './components/Navbar1'
-import Carousel1 from './components/Carousel1'
-import Signup from './components/Signup'
 import Footer from './components/Footer'
+import Login from './components/Login'
+import {BrowserRouter as Router,Routes, Route} from "react-router-dom"
+import Home from './components/Home'
+import AboutUs from './components/AboutUs';
 
 
 
 
-function App() {
-  const [count, setCount] = useState(0);
-  const [mode,setMode] =  useState("Light Mode");
-  const [color, setColor] = useState('dark');
-  const [alert, setAlert]=useState('null');
-
-
-
-  const increment = () => {
-    setCount(count + 1);
-  }
-
-  const decrement = () => {
-    setCount(count - 1);
-  }
-
-  const [name, setName]=useState("Guest");
-
-  const changeName =()=>{
-    setName(name === "Guest" ? "Nirdesh" : "Guest");
-  }
-  const title = "Hamro Nepal"
-
-    const  showAlert = (message,type)=>{
-      setAlert({
-      message:message,
-      type: type
-      })
-      setTimeout(()=>{
-        setAlert('null');
-      },2000)
-    }
-
-    const modeChange =()=>{
-      if(mode === 'Dark Mode'){
-        setMode('Light Mode');
-        setColor('dark');
-          toast.success('Dark Mode is On', {
-            position: "top-center",
-            autoClose: 1000,
-            hideProgressBar: true,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-            transition: Zoom,
-            });
-      }
-      else{
-        setMode('Dark Mode')
-        setColor('light');
-        showAlert('Dark mode', "success");
-        toast.success('Light is On', {
-          position: "top-center",
-          autoClose: 1000,
-          hideProgressBar: true,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
-          transition: Zoom,
-          });
-      }
-    }
-    const notify = () => toast("Wow so easy!");   
-
-    
-      
+function App() {      
 
   return (
     <>
+    <Router>
+
     <Navbar1/>
-    
-    {/* <Navbar notify={notify}title={title} mode={mode} modeChange={modeChange} color={color}/>
-     */}
+    <Routes>
+      <Route path='/' element={<Home/>}></Route>
+      <Route path='/login' element={<Login/>}></Route>
+      <Route path='/AboutUs' element={<AboutUs/>}></Route>
+    </Routes>
+    <Footer/>
+      </Router>
 
-      <Carousel1/>
-    <ToastContainer
-   position="center"
-   autoClose={1000}
-   hideProgressBar
-   newestOnTop={false}
-   closeOnClick
-   rtl={false}
-   pauseOnFocusLoss
-   draggable
-   pauseOnHover
-   theme="dark"
-   transition={Zoom}
-    />
-
-    <Slider/>
-    <Signup/>
-    <ClassBasedComponent/>
-    <FunctionBased/>
-    <button onClick={notify}>Notify</button>
-    <Alert alert={alert}/>
-
-      <div className="card">
-        <button onClick={increment}>
-          Increment
-        </button>
-
-        <button onClick={decrement}>
-          Decrement
-        </button>
-
-        <p>The count is {count}</p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-
-      <h1>Welcome {name}</h1>
-      <button onClick={changeName}>Change Name</button>
-      <Footer/>
     </>
     
   )
