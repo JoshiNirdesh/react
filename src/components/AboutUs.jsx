@@ -4,8 +4,10 @@ import './AboutUs.css';
 import image1 from '../assets/nepal1.jpg'
 import image2 from '../assets/nepal2.jpg'
 import image3 from '../assets/nepal3.jpg'
+import SmallHero from './SmallHero';
 
 const AboutUs = () => {
+
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const nepalImages = [
@@ -40,6 +42,7 @@ const AboutUs = () => {
   };
 
   return (
+
     <div className="about-container">
       <section className="about-content">
         <h1>About Nepal</h1>

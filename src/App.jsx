@@ -7,8 +7,8 @@ import Login from './components/Login'
 import {BrowserRouter as Router,Routes, Route} from "react-router-dom"
 import Home from './components/Home'
 import AboutUs from './components/AboutUs';
-
-
+import ContactUs from './components/Contact';
+import Signup from './components/Signup';
 
 
 function App() {      
@@ -22,6 +22,9 @@ function App() {
       <Route path='/' element={<Home/>}></Route>
       <Route path='/login' element={<Login/>}></Route>
       <Route path='/AboutUs' element={<AboutUs/>}></Route>
+      <Route path='/Contact' element={<ContactUs/>}></Route>
+      <Route path='/Signup' element={<Signup/>}></Route>
+
     </Routes>
     <Footer/>
       </Router>

@@ -1,81 +1,104 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import './Signup.css';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';  // Importing the icons from react-icons
+import SmallHero from './SmallHero';
 
 const Signup = () => {
-    const [data, setData] = useState({
-        email: "",
-        password: ''
-    });
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [passwordVisible, setPasswordVisible] = useState(false);  
+  const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
 
-    const handleChange = (e) => {
-        setData({ ...data, [e.target.name]: e.target.value });
-    };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (password !== confirmPassword) {
+      alert("Passwords do not match!");
+      return;
+    }
+    console.log('Signing up with:', { email, password });
+  };
 
-    const handleSubmit = (e) => {
-        e.preventDefault(); // Prevent page reload on form submission
-        console.log(data);
-    };
+  const togglePasswordVisibility = () => {
+    setPasswordVisible((prev) => !prev);  
+  };
 
-    const [visible, setVisible] = useState(false);
+  const toggleConfirmPasswordVisibility = () => {
+    setConfirmPasswordVisible((prev) => !prev);  
+  };
 
-    const visiblePassword = () => {
-        setVisible(!visible);
-    };
+  return (
+    <>
+      <SmallHero />
+      <div className="signup-container">
+        <div className="signup-card">
+          <h2>Create Account</h2>
+          <p className="subtitle">Please fill in the details below to create an account.</p>
+          
+          <form onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label htmlFor="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter your email"
+              />
+            </div>
+            
+            <div className="form-group">
+              <label htmlFor="password">Password</label>
+              <div className="password-container">
+                <input
+                  type={passwordVisible ? 'text' : 'password'} 
+                  id="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Create a password"
+                />
+                <button
+                  type="button"
+                  className="eye-icon"
+                  onClick={togglePasswordVisibility}
+                >
+                  {passwordVisible ? <FaEyeSlash /> : <FaEye />}  
+                </button>
+              </div>
+            </div>
 
-    return (
-        <div className='container'>
-            <form onSubmit={handleSubmit}>
-                <div className="form-group">
-                    <label htmlFor="exampleInputEmail1">Email address</label>
-                    <input
-                        type="email"
-                        className="form-control"
-                        id="exampleInputEmail1"
-                        aria-describedby="emailHelp"
-                        placeholder="Enter email"
-                        name="email"
-                        onChange={handleChange}
-                        value={data.email}
-                    />
-                    <small id="emailHelp" className="form-text text-muted">
-                        We'll never share your email with anyone else.
-                    </small>
-                </div>
+            <div className="form-group">
+              <label htmlFor="confirm-password">Confirm Password</label>
+              <div className="password-container">
+                <input
+                  type={confirmPasswordVisible ? 'text' : 'password'}
+                  id="confirm-password"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  placeholder="Confirm your password"
+                />
+                <button
+                  type="button"
+                  className="eye-icon"
+                  onClick={toggleConfirmPasswordVisibility}
+                >
+                  {confirmPasswordVisible ? <FaEyeSlash /> : <FaEye />}  
+                </button>
+              </div>
+            </div>
 
-                <div className="form-group">
-                    <label htmlFor="exampleInputPassword1">Password</label>
-                    <div className="input-group">
-                        <input
-                            type={visible ? "text" : "password"}
-                            className="form-control"
-                            id="exampleInputPassword1"
-                            placeholder="Password"
-                            name="password"
-                            onChange={handleChange}
-                            value={data.password}
-                        />
-                        <div className="input-group-append">
-                            <button
-                                onClick={visiblePassword}
-                                type="button"
-                                className="btn btn-outline-secondary"
-                            >
-                                <i className={visible ? 'fa fa-eye-slash' : 'fa fa-eye'}></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="form-check">
-                    <input type="checkbox" className="form-check-input" id="exampleCheck1" />
-                    <label className="form-check-label" htmlFor="exampleCheck1">
-                        Check me out
-                    </label>
-                </div>
-
-                <button type="submit" className="btn btn-primary">Submit</button>
-            </form>
+            <button type="submit" className="signup-button">
+              Sign Up
+            </button>
+          </form>
+          
+          <div className="login-link">
+            Already have an account? <a href="/login">Log in</a>
+          </div>
         </div>
-    );
+      </div>
+    </>
+  );
 };
 
 export default Signup;

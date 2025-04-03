@@ -22,7 +22,7 @@ nav {
     color: white;
     font-size: 1.2rem;
     font-weight: 600;
-    transition: 0.3s ease-in-out; 
+    transition: 0.3s ease-in-out;
 }
 
 #nav-list li a:hover {
@@ -40,11 +40,11 @@ nav {
     background-color: #F06225;
     color: white;
 }
-.nav-btn .link{
-    color:white;
+
+.nav-btn .link {
+    color: white;
     text-decoration: none;
     font-weight: 600;
-    
 }
 
 .burger i {
@@ -60,14 +60,14 @@ nav {
     #nav-list {
         display: flex;
         flex-direction: column;
-        align-items: center; /* Align the items to the center */
-        justify-content: flex-start; /* Align the items to the start */
-        gap: 15px; /* Decrease the gap to make it tighter */
+        align-items: center;
+        justify-content: flex-start;
+        gap: 15px;
         position: fixed;
         top: 50px;
-        right: -100%; /* Fully hidden to the right */
-        width: 100%; /* Full width on smaller screens */
-        height: 60vh;
+        right: -100%;
+        width: 100%;
+        height: 30vh;
         background-color: #343a40;
         box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
         padding: 40px 0 0 10px;
@@ -76,15 +76,15 @@ nav {
     }
 
     #nav-list.active {
-        right: 0; /* Slide in the full-width menu */
+        right: 0;
     }
 
     #nav-list li {
-        margin-bottom: 20px; /* Keep the gap between list items */
+        margin-bottom: 20px;
     }
 
     #nav-list li:first-child {
-        margin-top: 0; /* No top margin for the first list item */
+        margin-top: 0;
     }
 
     .nav-btn {

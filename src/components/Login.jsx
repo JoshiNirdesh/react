@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import './Login.css';
-import { FaEye, FaEyeSlash } from 'react-icons/fa';  // Importing the icons from react-icons
+import { FaEye, FaEyeSlash } from 'react-icons/fa';  
+import SmallHero from './SmallHero';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -18,6 +20,8 @@ const Login = () => {
   };
 
   return (
+    <>
+    <SmallHero/>
     <div className="login-container">
       <div className="login-card">
         <h2>Welcome Back</h2>
@@ -76,10 +80,12 @@ const Login = () => {
         </form>
         
         <div className="signup-link">
-          Don't have an account? <a href="/signup">Sign up</a>
+          Don't have an account? <Link to ="/Signup">Sign up</Link>
         </div>
       </div>
     </div>
+    </>
+    
   );
 };
 
