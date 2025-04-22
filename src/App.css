@@ -7,11 +7,48 @@
   color: white;
   font-weight: 600;
 }
-@media screen and (max-width:768px) {
-  .car-text{
+.cart-product-size {
+  width: 200px;
+}
+.cart {
+  padding: 15px;
+  display: flex;
+  gap: 50px;
+  padding-top: 20px;
+}
+.content-cart {
+  display: flex;
+  align-items: center;
+}
+.cart-price {
+  font-weight: 500;
+  font-size: 20px;
+}
+.cart-qty {
+  display: flex;
+  font-size: 30px;
+  align-items: center;
+  margin-left: 150px;
+}
+.min-cart {
+  margin-right: 10px;
+}
+.max-cart {
+  margin-left: 10px;
+}
+.cart-delete {
+  display: flex;
+  align-items: center;
+  font-size: 30px;
+  color: red;
+  margin-bottom: 20px;
+  margin-left: 350px;
+  cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+  .car-text {
     font-size: 40px;
   }
-  
 }
 /* Add to your styles (e.g., App.css) */
 .slider-container {
@@ -46,7 +83,8 @@
 }
 
 /* Custom Styles for Previous and Next buttons */
-.slick-prev, .slick-next {
+.slick-prev,
+.slick-next {
   background-color: #007bff;
   border: none;
   padding: 10px;
@@ -63,13 +101,11 @@
 .slick-next {
   right: 10px;
 }
-.about-title{
+.about-title {
   text-align: center;
   padding: 40px 0px;
 }
-.small-hero img{
+.small-hero img {
   width: 100%;
   height: 200px;
 }
-
-

@@ -1,0 +1,32 @@
+.main {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+.product-size {
+  height: 250px;
+  width: 250px;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+.content p {
+  font-weight: 500;
+}
+.btn-cart {
+  width: 100%;
+  background-color: #f06225;
+  border: #f06225;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+.top {
+  margin-top: 50px;
+  margin-left: 100px;
+}

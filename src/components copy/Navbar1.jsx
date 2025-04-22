@@ -55,9 +55,6 @@ const Navbar1 = ({ cartAllProduct }) => {
             <li>
               <Link to="/shop">Shop</Link>
             </li>
-            <li>
-              <Link to="/practice">practice</Link>
-            </li>
           </ul>
         </div>
 
